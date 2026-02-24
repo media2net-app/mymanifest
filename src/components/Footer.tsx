@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { categories } from "@/lib/categories";
+import { headerCategories } from "@/lib/header-categories";
 
 export function Footer() {
   return (
     <footer className="border-t border-border/60 bg-card/30 mt-auto">
-      <div className="max-w-[1400px] mx-auto px-6 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 py-10 sm:px-6 sm:py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* About */}
           <div className="col-span-2 md:col-span-1">
@@ -20,11 +20,14 @@ export function Footer() {
           {/* Discover / Categories */}
           <div className="col-span-2">
             <h3 className="font-semibold text-foreground mb-4">Discover</h3>
-            <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-foreground/70">
-              {categories.map((cat) => (
-                <li key={cat.id}>
-                  <Link href={`#category-${cat.slug}`} className="hover:text-primary transition-colors">
-                    {cat.name}
+            <ul className="space-y-2 text-sm text-foreground/70">
+              {headerCategories.map((main) => (
+                <li key={main.name}>
+                  <Link
+                    href={main.slug ? `/#category-${main.slug}` : `/#category-${main.sub[0]?.slug ?? ""}`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {main.name}
                   </Link>
                 </li>
               ))}
@@ -50,12 +53,15 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-10 pt-8 border-t border-border/60 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-foreground/60">
-          <p>© {new Date().getFullYear()} MyManifest. Crowdfunding for what matters.</p>
+        <div className="mt-10 pt-8 border-t border-border/60" />
+      </div>
+      <div className="bg-primary-darker py-6 text-white">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-4 text-sm sm:flex-row sm:px-6">
+          <p className="text-white/80">© {new Date().getFullYear()} MyManifest. Crowdfunding for what matters.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-primary transition-colors" aria-label="Twitter">Twitter</a>
-            <a href="#" className="hover:text-primary transition-colors" aria-label="Instagram">Instagram</a>
-            <a href="#" className="hover:text-primary transition-colors" aria-label="Facebook">Facebook</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Twitter">Twitter</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Instagram">Instagram</a>
+            <a href="#" className="text-white/80 hover:text-white transition-colors" aria-label="Facebook">Facebook</a>
           </div>
         </div>
       </div>

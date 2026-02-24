@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f0fdf4;
-  --foreground: #052e16;
-  --primary: #059669;
-  --primary-hover: #047857;
-  --primary-light: #d1fae5;
-  --accent: #10b981;
-  --muted: #a7f3d0;
+  --background: #fafafa;
+  --foreground: #0f172a;
+  /* Original MyManifest green (aligned with live site mymanifest.eu) */
+  --primary: #16a34a;
+  --primary-hover: #15803d;
+  --primary-dark: #14532d;
+  --primary-darker: #052e16;
+  --primary-light: #dcfce7;
+  --accent: #22c55e;
+  --muted: #e2e8f0;
   --card: #ffffff;
-  --border: #a7f3d0;
+  --border: #e2e8f0;
 }
 
 @theme inline {
@@ -17,6 +20,8 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-darker: var(--primary-darker);
   --color-primary-light: var(--primary-light);
   --color-accent: var(--accent);
   --color-muted: var(--muted);

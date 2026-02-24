@@ -23,11 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${outfit.variable} ${geistMono.variable} font-sans antialiased`}
-      >
-        {children}
+    <html lang="en" className="h-full">
+      <body className={`${outfit.variable} ${geistMono.variable} min-h-full overflow-x-hidden font-sans antialiased bg-background text-foreground`}>
+        <div className="min-h-screen flex flex-col overflow-x-hidden">
+          {children}
+        </div>
       </body>
     </html>
   );

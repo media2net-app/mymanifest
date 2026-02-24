@@ -38,7 +38,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex">
       {/* Left: branding / illustration */}
       <div className="hidden lg:flex lg:w-1/2 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#059669] via-[#047857] to-[#065f46] opacity-95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#16a34a] via-[#15803d] to-[#14532d] opacity-95" />
         <div className="relative z-10 flex flex-col justify-between p-12 text-white">
           <Link href="/" className="text-2xl font-bold tracking-tight">
             MyManifest
