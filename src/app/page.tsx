@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { startups } from "@/lib/startups";
+import { categories } from "@/lib/categories";
+import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
   return (
@@ -11,6 +13,12 @@ export default function HomePage() {
             MyManifest
           </Link>
           <nav className="flex items-center gap-6">
+            <Link
+              href="/dashboard"
+              className="text-foreground/80 hover:text-primary font-medium transition-colors"
+            >
+              Dashboard
+            </Link>
             <Link
               href="/login"
               className="text-foreground/80 hover:text-primary font-medium transition-colors"
@@ -28,6 +36,23 @@ export default function HomePage() {
       </header>
 
       <main className="flex-1 max-w-[1400px] mx-auto w-full px-6 py-12">
+        <section className="mb-10">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Explore categories</h2>
+          <p className="text-foreground/70 mb-6">Find projects in the categories you care about.</p>
+          <div className="flex flex-wrap gap-3">
+            {categories.map((cat) => (
+              <Link
+                key={cat.id}
+                href={`#category-${cat.slug}`}
+                id={`category-${cat.slug}`}
+                className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:border-primary hover:bg-primary-light/30 hover:text-primary transition-colors"
+              >
+                {cat.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground max-w-3xl mx-auto leading-tight">
             Bring ideas to life.
@@ -51,7 +76,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section>
+        <section className="mt-14">
           <h2 className="text-2xl font-bold text-foreground mb-6">
             Discover projects
           </h2>
@@ -110,9 +135,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-border/60 py-6 mt-12 text-center text-sm text-foreground/60">
-        MyManifest — Crowdfunding for what matters.
-      </footer>
+      <Footer />
     </div>
   );
 }
